@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Dithered Background - No JavaScript</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .example {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .example-preview {
+      width: 100%;
+      height: 400px;
+      position: relative;
+    }
+
+    .example-info {
+      padding: 20px;
+    }
+
+    .example-info h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .example-info code {
+      display: block;
+      background: #f5f5f5;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    /* Method 1: Inline SVG in CSS */
+    .bg-inline-svg {
+      background-image: url('dither-gradient-static.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Method 2: External SVG file */
+    .bg-external-svg {
+      background-image: url('dither-gradient-static.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Method 3: Base64 encoded (for self-contained CSS) */
+    /* Note: You would encode the SVG to base64 */
+    .bg-base64 {
+      background-image: url('dither-gradient-static.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Method 4: Scaled and positioned */
+    .bg-scaled {
+      background-image: url('dither-gradient-static.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom center;
+    }
+
+    .content-overlay {
+      padding: 30px;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .content-overlay h2 {
+      margin: 0 0 10px 0;
+    }
+
+    .content-overlay p {
+      margin: 0;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1>🎨 SVG Dithered Gradient Backgrounds<br><small style="font-size: 0.5em; font-weight: normal;">Pure CSS - No JavaScript Required</small></h1>
+
+    <div class="examples">
+      <!-- Example 1 -->
+      <div class="example">
+        <div class="example-preview bg-external-svg">
+          <div class="content-overlay">
+            <h2>External SVG</h2>
+            <p>Loaded from separate file</p>
+          </div>
+        </div>
+        <div class="example-info">
+          <h3>Method 1: External File</h3>
+          <p>Reference the SVG file directly. Best for production - cacheable and smallest HTML size.</p>
+          <code>.element {
+  background-image: url('dither-gradient.svg');
+  background-size: cover;
+}</code>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="example">
+        <div class="example-preview bg-scaled">
+          <div class="content-overlay">
+            <h2>Scaled Version</h2>
+            <p>Positioned at bottom</p>
+          </div>
+        </div>
+        <div class="example-info">
+          <h3>Method 2: Positioned</h3>
+          <p>Control size and position separately</p>
+          <code>.element {
+  background-image: url('dither-gradient.svg');
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}</code>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="example">
+        <div class="example-preview bg-base64">
+          <div class="content-overlay">
+            <h2>Optimized</h2>
+            <p>Ready for production</p>
+          </div>
+        </div>
+        <div class="example-info">
+          <h3>Method 3: Base64 (Optional)</h3>
+          <p>Encode SVG to base64 for self-contained CSS. Use tools like:</p>
+          <code># Online: base64encode.org
+# Or command line:
+base64 -w 0 dither.svg</code>
+          <p style="margin-top: 10px; font-size: 13px; color: #666;">Note: Not always recommended - external files are often better for caching</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 60px; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h2>📝 How to Use</h2>
+      
+      <h3>Step 1: Generate Your SVG</h3>
+      <p>Use the Python script to generate your custom dithered gradient:</p>
+      <code>python3 generate_dither_svg.py > my-gradient.svg</code>
+      
+      <h3 style="margin-top: 20px;">Step 2: Customize (Optional)</h3>
+      <p>Edit the script to change colors, size, density, etc:</p>
+      <code>COLOR_INNER = (45, 10, 78)    # Dark purple
+COLOR_MIDDLE = (123, 31, 162) # Medium purple  
+COLOR_OUTER = (225, 190, 231) # Light purple
+PIXEL_SIZE = 3                 # Size of dither pixels
+DENSITY_CURVE = 1.5            # How fast density increases</code>
+
+      <h3 style="margin-top: 20px;">Step 3: Use in CSS</h3>
+      <p>Reference the generated SVG file:</p>
+      <code>.hero-section {
+  background-image: url('my-gradient.svg');
+  background-size: cover;
+  background-position: center;
+}</code>
+
+      <h3 style="margin-top: 20px;">✅ Benefits</h3>
+      <ul style="margin-left: 20px; line-height: 1.8;">
+        <li><strong>Zero JavaScript</strong> - Pure CSS solution</li>
+        <li><strong>Tiny file size</strong> - SVG is ~1MB but compresses to ~50KB with gzip</li>
+        <li><strong>Scalable</strong> - Vector format scales perfectly</li>
+        <li><strong>Cacheable</strong> - Browsers cache the SVG file</li>
+        <li><strong>Fast</strong> - No runtime computation needed</li>
+      </ul>
+
+      <h3 style="margin-top: 20px;">⚡ Performance Tips</h3>
+      <ul style="margin-left: 20px; line-height: 1.8;">
+        <li>Increase PIXEL_SIZE (e.g., 4-6) for smaller file size</li>
+        <li>Use gzip compression on your server (most servers do this automatically)</li>
+        <li>Consider optimizing the SVG with SVGO for even smaller size</li>
+        <li>For multiple similar gradients, generate different SVGs rather than using CSS filters</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
