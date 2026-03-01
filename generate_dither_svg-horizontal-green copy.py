@@ -12,9 +12,9 @@ import random
 # Configuration
 # ===============================
 
-WIDTH = 1000
-HEIGHT = 1450
-PIXEL_SIZE = 6
+WIDTH = 1160
+HEIGHT = 425
+PIXEL_SIZE = 3
 
 CENTER_X = 1.0      # Horizontal position of gradient center (0=left, 0.5=center, 1=right)
 CENTER_Y = 1.0      # Vertical position of gradient center (0=top, 0.5=center, 1=bottom). 1.0 places it slightly below frame for cinematic feel
@@ -27,8 +27,8 @@ NOISE_AMOUNT = 0     # 0 to disable
 # Colors (RGB)
 COLOR_INNER = (255, 255, 255)   # #ffffff (white)
 # COLOR_MIDDLE = (38, 190, 211)     # #26bed3 (cyan)
-COLOR_MIDDLE = (40, 120, 255)     # #2878ff (blue)
-# COLOR_MIDDLE = (27, 173, 95)   # #3a0b64 (bright green)
+# COLOR_MIDDLE = (40, 120, 255)     # #2878ff (blue)
+COLOR_MIDDLE = (27, 173, 95)   # #3a0b64 (bright green)
 # COLOR_MIDDLE = (5, 31, 22)   # Softer green - subtle transition
 # COLOR_INNER = (27, 173, 95)   # #3a0b64 (bright green)
 # COLOR_MIDDLE = (0, 0, 0)   # black

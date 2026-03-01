@@ -13,11 +13,11 @@ import random
 # ===============================
 
 WIDTH = 1160
-HEIGHT = 375
-PIXEL_SIZE = 5
+HEIGHT = 425
+PIXEL_SIZE = 3
 
 CENTER_X = 1.0      # Horizontal position of gradient center (0=left, 0.5=center, 1=right)
-CENTER_Y = 1.0      # Vertical position of gradient center (0=top, 0.5=center, 1=bottom). 1.0 places it slightly below frame for cinematic feel
+CENTER_Y = 0      # Vertical position of gradient center (0=top, 0.5=center, 1=bottom). 1.0 places it slightly below frame for cinematic feel
 RADIAL_SCALE = 0.7  # Controls the size/spread of the gradient (0-1, smaller = tighter/more compact gradient, larger = spreads further)
 DENSITY_CURVE = 1.0 # Exponent controlling density distribution (lower = more concentrated at center, higher = more spread out)
 BRIGHTNESS_CURVE = 1.0  # Exponent controlling brightness falloff rate (higher = steeper dropoff from center to edges)
@@ -27,8 +27,8 @@ NOISE_AMOUNT = 0     # 0 to disable
 # Colors (RGB)
 COLOR_INNER = (255, 255, 255)   # #ffffff (white)
 # COLOR_MIDDLE = (38, 190, 211)     # #26bed3 (cyan)
-COLOR_MIDDLE = (40, 120, 255)     # #2878ff (blue)
-# COLOR_MIDDLE = (27, 173, 95)   # #3a0b64 (bright green)
+# COLOR_MIDDLE = (40, 120, 255)     # #2878ff (blue)
+COLOR_MIDDLE = (27, 173, 95)   # #3a0b64 (bright green)
 # COLOR_MIDDLE = (5, 31, 22)   # Softer green - subtle transition
 # COLOR_INNER = (27, 173, 95)   # #3a0b64 (bright green)
 # COLOR_MIDDLE = (0, 0, 0)   # black
